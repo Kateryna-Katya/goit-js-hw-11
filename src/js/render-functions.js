@@ -1,26 +1,16 @@
-export const createGalleryCardTemplate = imgInfo => {
+export const createGalleryCardTemplate = ({ webformatURL, largeImageURL, tags, likes, views, comments, downloads }) => {
   return `
-  <div class="img-container">
-  <li class="gallery-card">
-  <a class="gallery-link" href="${imgInfo.largeImageURL}">
-    <img
-      class="gallery-img"
-      src="${imgInfo.webformatURL}"
-      alt="${imgInfo.tags}"
-      width="360" height="200"
-    />
-    <div class="info">
-<p><b>Likes:</b> ${imgInfo.likes}</p>
-        <p><b>Views:</b> ${imgInfo.views}</p>
-        <p><b>Coments:</b> ${imgInfo.comments}</p>
-        <p><b>Downloads:</b> ${imgInfo.downloads}</p>
-    </div>
-  </a>
-</li>
-</div>`
+  <a href="${largeImageURL}" class="gallery__item">
+  <img src="${webformatURL}" alt="${tags}" class="gallery__image" />
+  <div class="info">
+<p class="info-item"><b>Likes</b> ${likes}</p>
+<p class="info-item"><b>Views</b> ${views}</p>
+<p class="info-item"><b>Comments</b> ${comments}</p>
+<p class="info-item"><b>Downloads</b> ${downloads}</p>
+</div>
+</a>
+`
 }
-
-
 
 
 
